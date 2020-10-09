@@ -16,7 +16,7 @@ import wx
 app = wx.App()
 def ChromeDriver():
 
-    browser = webdriver.Chrome(executable_path=str(f"C:\\chromedriver.exe"))
+    browser = webdriver.Chrome(executable_path=str(f"F:\\chromedriver.exe"))
     browser.maximize_window()
     browser.get("""https://chrome.google.com/webstore/detail/browsec-vpn-free-and-unli/omghfjlpggmjjaagoclmmobgdodcjboh?hl=en" ping="/url?sa=t&amp;source=web&amp;rct=j&amp;url=https://chrome.google.com/webstore/detail/browsec-vpn-free-and-unli/omghfjlpggmjjaagoclmmobgdodcjboh%3Fhl%3Den&amp;ved=2ahUKEwivq8rjlcHmAhVtxzgGHZ-JBMgQFjAAegQIAhAB""")
     for Add_Extension in browser.find_elements_by_xpath('/html/body/div[4]/div[2]/div/div/div[2]/div[2]/div'):
@@ -74,38 +74,38 @@ def Scrap_data(browser, Tender_href):
                 SegFeild[2] = "Baiji, Iraq<br>\n Phone: +974 7725 7608"
                 SegFeild[8] = 'http://www.nrc.oil.gov.iq/'
                 Name_of_Directorate = ''
-                for Name_of_Directorate in browser.find_elements_by_xpath('/html/body/div[2]/center/table/tbody/tr[7]/td/table[1]/tbody/tr/td[2]/center/table/tbody/tr[2]/td[2]'):
+                for Name_of_Directorate in browser.find_elements_by_xpath('/html/body/div/center/table/tbody/tr[7]/td/table[1]/tbody/tr/td[2]/center/table/tbody/tr[2]/td[2]'):
                     Name_of_Directorate = Name_of_Directorate.get_attribute('innerText').replace('&nbsp;', '').strip()
                     break
 
                 # Title
-                for Tender_Subject in browser.find_elements_by_xpath('/html/body/div[2]/center/table/tbody/tr[7]/td/table[1]/tbody/tr/td[2]/center/table/tbody/tr[3]/td[2]'):
+                for Tender_Subject in browser.find_elements_by_xpath('/html/body/div/center/table/tbody/tr[7]/td/table[1]/tbody/tr/td[2]/center/table/tbody/tr[3]/td[2]'):
                     Tender_Subject = Tender_Subject.get_attribute('innerText').replace('&nbsp;', '').strip()
                     Tender_Subject = string.capwords(str(Tender_Subject)).strip()
                     SegFeild[19] = Tender_Subject
                     break
 
                 # Email
-                for Email in browser.find_elements_by_xpath('/html/body/div[2]/center/table/tbody/tr[7]/td/table[1]/tbody/tr/td[2]/center/table/tbody/tr[4]/td[2]/div'):
+                for Email in browser.find_elements_by_xpath('/html/body/div/center/table/tbody/tr[7]/td/table[1]/tbody/tr/td[2]/center/table/tbody/tr[4]/td[2]/div'):
                     Email = Email.get_attribute('innerText').replace('&nbsp;', '').replace('&nbsp;', '').strip().replace(' ','')
                     SegFeild[1] = Email.strip()
                     break
 
                 # tender NO
-                for Bid_number in browser.find_elements_by_xpath('/html/body/div[2]/center/table/tbody/tr[7]/td/table[1]/tbody/tr/td[2]/center/table/tbody/tr[5]/td[2]'):
+                for Bid_number in browser.find_elements_by_xpath('/html/body/div/center/table/tbody/tr[7]/td/table[1]/tbody/tr/td[2]/center/table/tbody/tr[5]/td[2]'):
                     Bid_number = Bid_number.get_attribute('innerText').replace('&nbsp;', '').strip()
                     SegFeild[13] = Bid_number.strip()
                     break
 
                 # Release Date
                 Release_Date = ""
-                for Release_Date in browser.find_elements_by_xpath('/html/body/div[2]/center/table/tbody/tr[7]/td/table[1]/tbody/tr/td[2]/center/table/tbody/tr[6]/td[2]'):
+                for Release_Date in browser.find_elements_by_xpath('/html/body/div/center/table/tbody/tr[7]/td/table[1]/tbody/tr/td[2]/center/table/tbody/tr[6]/td[2]'):
                     Release_Date = Release_Date.get_attribute('innerText').replace('&nbsp;', '').strip()
                     break
 
                 # Extention Date
                 Extention_Date = ""
-                for Extention_Date in browser.find_elements_by_xpath('/html/body/div[2]/center/table/tbody/tr[7]/td/table/tbody/tr/td[2]/center/table/tbody/tr[8]/td[2]'):
+                for Extention_Date in browser.find_elements_by_xpath('/html/body/div/center/table/tbody/tr[7]/td/table[1]/tbody/tr/td[2]/center/table/tbody/tr[8]/td[2]'):
                     Extention_Date = Extention_Date.get_attribute('innerText').replace('&nbsp;', '').strip()
                     if Extention_Date == "لايوجد تمديد":
                         Extention_Date = ""
@@ -113,7 +113,7 @@ def Scrap_data(browser, Tender_href):
 
                 # Close Date
                 try:
-                    for Close_Date in browser.find_elements_by_xpath('/html/body/div[2]/center/table/tbody/tr[7]/td/table[1]/tbody/tr/td[2]/center/table/tbody/tr[7]/td[2]'):
+                    for Close_Date in browser.find_elements_by_xpath('/html/body/div/center/table/tbody/tr[7]/td/table[1]/tbody/tr/td[2]/center/table/tbody/tr[7]/td[2]'):
                         Close_Date = Close_Date.get_attribute('innerText').strip()
                         datetime_object = datetime.strptime(Close_Date, "%Y-%m-%d")
                         mydate = datetime_object.strftime("%Y-%m-%d")
