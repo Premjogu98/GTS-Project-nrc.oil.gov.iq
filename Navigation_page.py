@@ -73,7 +73,7 @@ def Scrap_data(browser, Tender_href):
                 SegFeild[12] = 'NORTH REFINERIES COMPANY (NRC)'
                 SegFeild[2] = "Baiji, Iraq<br>\n Phone: +974 7725 7608"
                 SegFeild[8] = 'http://www.nrc.oil.gov.iq/'
-
+                Name_of_Directorate = ''
                 for Name_of_Directorate in browser.find_elements_by_xpath('/html/body/div[2]/center/table/tbody/tr[7]/td/table[1]/tbody/tr/td[2]/center/table/tbody/tr[2]/td[2]'):
                     Name_of_Directorate = Name_of_Directorate.get_attribute('innerText').replace('&nbsp;', '').strip()
                     break
