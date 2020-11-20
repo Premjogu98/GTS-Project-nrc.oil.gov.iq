@@ -16,14 +16,13 @@ import wx
 app = wx.App()
 def ChromeDriver():
 
-    browser = webdriver.Chrome(executable_path=str(f"F:\\chromedriver.exe"))
+    chrome_options = Options()
+    chrome_options.add_extension('C:\\BrowsecVPN.crx')
+    browser = webdriver.Chrome(executable_path=str(f"C:\\chromedriver.exe"),chrome_options=chrome_options)
     browser.maximize_window()
-    browser.get("""https://chrome.google.com/webstore/detail/browsec-vpn-free-and-unli/omghfjlpggmjjaagoclmmobgdodcjboh?hl=en" ping="/url?sa=t&amp;source=web&amp;rct=j&amp;url=https://chrome.google.com/webstore/detail/browsec-vpn-free-and-unli/omghfjlpggmjjaagoclmmobgdodcjboh%3Fhl%3Den&amp;ved=2ahUKEwivq8rjlcHmAhVtxzgGHZ-JBMgQFjAAegQIAhAB""")
-    for Add_Extension in browser.find_elements_by_xpath('/html/body/div[4]/div[2]/div/div/div[2]/div[2]/div'):
-        Add_Extension.click()
-        break
-    wx.MessageBox(' -_-  Add Extension and Select Proxy Between 25 SEC -_- ', 'Info', wx.OK | wx.ICON_WARNING)
-    time.sleep(25)  # WAIT UNTIL CHANGE THE MANUAL VPN SETTING
+    # browser.get("""https://chrome.google.com/webstore/detail/browsec-vpn-free-and-unli/omghfjlpggmjjaagoclmmobgdodcjboh?hl=en" ping="/url?sa=t&amp;source=web&amp;rct=j&amp;url=https://chrome.google.com/webstore/detail/browsec-vpn-free-and-unli/omghfjlpggmjjaagoclmmobgdodcjboh%3Fhl%3Den&amp;ved=2ahUKEwivq8rjlcHmAhVtxzgGHZ-JBMgQFjAAegQIAhAB""")
+    wx.MessageBox(' -_-  Add Extension and Select Proxy Between 10 SEC -_- ', 'Info', wx.OK | wx.ICON_WARNING)
+    time.sleep(15)  # WAIT UNTIL CHANGE THE MANUAL VPN SETtING
     browser.get("https://nrc.oil.gov.iq/")
     wx.MessageBox(' -_-  Fill captch First If There -_- ', 'Info', wx.OK | wx.ICON_INFORMATION)
     time.sleep(2)
