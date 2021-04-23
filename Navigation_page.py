@@ -17,8 +17,8 @@ app = wx.App()
 def ChromeDriver():
 
     chrome_options = Options()
-    chrome_options.add_extension('C:\\BrowsecVPN.crx')
-    browser = webdriver.Chrome(executable_path=str(f"C:\\chromedriver.exe"),chrome_options=chrome_options)
+    chrome_options.add_extension('C:\\Translation EXE\\BrowsecVPN.crx')
+    browser = webdriver.Chrome(executable_path=str(f"C:\\Translation EXE\\chromedriver.exe"),chrome_options=chrome_options)
     browser.maximize_window()
     # browser.get("""https://chrome.google.com/webstore/detail/browsec-vpn-free-and-unli/omghfjlpggmjjaagoclmmobgdodcjboh?hl=en" ping="/url?sa=t&amp;source=web&amp;rct=j&amp;url=https://chrome.google.com/webstore/detail/browsec-vpn-free-and-unli/omghfjlpggmjjaagoclmmobgdodcjboh%3Fhl%3Den&amp;ved=2ahUKEwivq8rjlcHmAhVtxzgGHZ-JBMgQFjAAegQIAhAB""")
     wx.MessageBox(' -_-  Add Extension and Select Proxy Between 10 SEC -_- ', 'Info', wx.OK | wx.ICON_WARNING)
@@ -47,8 +47,7 @@ def ChromeDriver():
                 tender_href_list.append(tender_href)
                 td += 1
                 break
-        else:
-            Scrap_data(browser, tender_href_list)
+    Scrap_data(browser, tender_href_list)
 
 
 def Scrap_data(browser, Tender_href):
